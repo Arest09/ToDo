@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style/reset.css">
+  <link rel="stylesheet" href="/style/style.css">
+  <script src="https://kit.fontawesome.com/998abb46f7.js" crossorigin="anonymous"></script>
+  <title>To do list</title>
+</head>
+
+<body>
+  
+
+
+  <main>
+    <a href="/important"><i class="fa-solid fa-heart" style="font-size:35px; position: absolute; top: 25%; left: 10%;" ></i></a>
+
+    <div class="main__wrapper">
+      
+    <form method="POST" action="/"   class="form">
+    
+      <input class="input" type="text" name="name" placeholder=". . .">
+    <button class="btn"> <i class="fa-solid fa-plus "></i></button> 
+    </form>
+ 
+    <div  class="content">
+      <% posts.forEach(item => { %>
+      <div class="content__item">
+        
+           <input  type="text" class="input content__input"  readonly value="<%= item.name %>"<% if(item.done){ %>
+            style="text-decoration:line-through;"
+            <% } else{ %>  
+              style="text-decoration:none;"
+           <% } %> />
+           
+        
+      
+        <i class="fa-solid fa-trash btn content__btn content__btn--delete" data-delete="<%= item.id %>"></i>
+        <i class="fa-solid fa-pen btn content__btn content__btn--change btn" data-change="<%= item.id %>"></i>
+       
+        <button class="btn content__btn content__btn--confirm btn" data-confirm="<%= item.id %>">потвердить</button>
+        <% const checked = item.checked %>
+      <label class="label">
+        
+          <input type="checkbox" value ="<%= checked %>"
+           <% if(checked == true)
+           { %>
+            class="content__check checked"  checked 
+            <% } 
+            else { %>
+              class="content__check"
+            <% } %>   data-id = "<%= item.id %>">
+            <i class="fa-solid fa-star label__check"></i>
+          
+          </label>    
+        <div class="burger__content">
+          <span class="content__line"></span>
+          <span class="content__line"></span>
+        </div>
+        
+        <label class="label">
+       
+          <input type="checkbox" value="<%= item.done %>" 
+          <% if(item.done == true)
+           { %>
+            class="label__check-done checked"  checked 
+            <% } 
+            else { %>
+              class="label__check-done"
+            <% } %>
+           data-id ="<%= item.id %>"> 
+          <div class="label__done"></div>
+        </label>
+      </div>
+    <% }) %>
+   
+  </div> 
+  </div>
+  </main>
+  <script src="/main.js"></script>
+  
+</body>
+
+</html>
+
+

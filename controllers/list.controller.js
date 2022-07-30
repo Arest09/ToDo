@@ -1,6 +1,6 @@
 
 const db = require('../db')
-const path = require("path")
+const filePath = require('../helpers/helper')
 
 const createItem = async(req,res)=>{
     const {name} = req.body;
@@ -12,7 +12,7 @@ const createItem = async(req,res)=>{
 const getItem = async(req,res)=>{
     const {rows} = await db.query("SELECT * FROM list ORDER BY id;")
     const posts = rows;
-    res.render(path.resolve(__dirname,"../","ejs","index.ejs"),{posts})
+    res.render(filePath("index.ejs"),{posts})
 }
 
 const deleteItem = async(req,res)=>{
@@ -57,7 +57,7 @@ const important = async( req,res)=>{
   try {
   const {rows} = await db.query(`select name from list where checked = 'true'`)
   const posts = rows;
-  res.render(path.resolve(__dirname,"../","ejs","important.ejs"),{posts})
+  res.render(filePath("important.ejs"),{posts})
 
   } catch (error) {
     console.log(error)

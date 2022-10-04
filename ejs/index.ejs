@@ -22,7 +22,7 @@
     <div class="main__wrapper">
       
     <form method="POST" action="/"   class="form">
-      <input class="input" type="text" name="name" placeholder=". . .">
+      <input class="form__input input" type="text" name="name" placeholder=". . .">
       <button class="btn"> <i class="fa-solid fa-plus "></i></button> 
     </form>
  
@@ -37,12 +37,13 @@
            <% } %> />
            
         
-      
+      <div class="content__icons">
         <i class="fa-solid fa-trash btn content__btn content__btn--delete" data-delete="<%= item.id %>"></i>
         <i class="fa-solid fa-pen btn content__btn content__btn--change btn" data-change="<%= item.id %>"></i>
-       
+      </div>
         <button class="btn content__btn content__btn--confirm btn" data-confirm="<%= item.id %>">потвердить</button>
         <% const checked = item.checked %>
+        <div class="content__check">
       <label class="label">
         
           <input type="checkbox" value ="<%= checked %>"
@@ -56,10 +57,7 @@
             <i class="fa-solid fa-star label__check"></i>
           
           </label>    
-        <div class="burger__content">
-          <span class="content__line"></span>
-          <span class="content__line"></span>
-        </div>
+        
         
         <label class="label">
        
@@ -74,6 +72,7 @@
            data-id ="<%= item.id %>"> 
           <div class="label__done"></div>
         </label>
+      </div>
       </div>
     <% }) %>
    

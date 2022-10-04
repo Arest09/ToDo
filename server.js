@@ -5,7 +5,7 @@ const listRoutes = require("./routes/list.routes")
 const app = express();
 const PORT = 3000;
 
-app.listen(PORT, (error) => {
+app.listen(process.env.PORT || 3000, (error) => {
   error ? console.log(error) : console.log(`listening port ${PORT}`);
 });
 app.use(express.urlencoded({ extended: false }));

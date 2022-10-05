@@ -239,6 +239,9 @@ input[type="checkbox"]:checked + .label__done {
 }
 
 @media (max-width: 500px) {
+  .content__check-wrapper{
+    flex-direction: column;
+  }
   .form__input.input{
   width: 80%;
   }

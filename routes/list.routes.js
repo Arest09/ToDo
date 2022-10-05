@@ -7,8 +7,9 @@ router.post('/',createItem)
 router.delete('/:id',deleteItem)
 router.put('/:id',changeItem)
 router.put('/check/:id',checkItem)
-router.get('/important',important)
 router.put('/isCheckDone/:id',isDone)
+router.get('/important',important)
+
 
 module.exports = router;
 

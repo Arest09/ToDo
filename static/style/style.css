@@ -175,7 +175,7 @@ i {
   background-color: black;
 }
 
-.content__check {
+.content__check-wrapper {
   order: -1;
   display: flex;
   flex-grow: 1;
@@ -257,5 +257,9 @@ input[type="checkbox"]:checked + .label__done {
   }
   .content__item{
     margin-bottom: 65px;
+  }
+  i.fa-solid.fa-heart {
+    top: 80% !important;
+    left: 85% !important;
   }
 }

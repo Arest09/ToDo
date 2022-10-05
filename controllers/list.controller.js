@@ -44,6 +44,7 @@ const checkItem = async(req,res)=>{
    
     const id = req.params.id;
     const {checked} = req.body;
+    console.log(checked)
 
     try {
         await db.query(`UPDATE list SET checked = '${checked}' where id ='${id}'`)

@@ -9,10 +9,12 @@ const devCongif = { user:process.env.USER,
     port:process.env.PORT}
 
 const pool = new Pool(
-    devCongif, 
-  
-    
-)
+    { 
+    connectionString:'postgres://isantzafeopnzv:75a475b41f3a283e19907517e3f36ffcee9baccc88f1f6ae086a14965a32c622@ec2-99-81-68-240.eu-west-1.compute.amazonaws.com:5432/dbqari89f7dalq',
+    ssl: {
+        rejectUnauthorized: false
+    }
+})
 
 
 pool.connect();
